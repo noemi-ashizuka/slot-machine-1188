@@ -1,0 +1,40 @@
+60.times do
+  shuffle_reels
+  print @reels.join("\t") + "\r"
+  $stdout.flush
+  sleep(0.03)
+end
+
+def play
+    @combo = []
+    60.times do
+      @combo = []
+      3.times do
+        @combo << SYMBOLS.sample
+      end
+      print "|\t" + @combo.join("\t|\t") + "\t|\r"
+      $stdout.flush
+      sleep(0.03)
+    end
+    puts "-" * 49
+    print "|\t" + @combo.join("\t|\t") + "\t|\r"
+    puts "\n" + "-" * 49
+    return @combo
+  end
+
+%w[🍒 7️⃣ 🛎 ⭐️ 🤩]
+
+test_scenario(50, %w[🤩 🤩 🤩])
+test_scenario(40, %w[⭐️ ⭐️ ⭐️])
+test_scenario(30, %w[🛎 🛎 🛎])
+test_scenario(20, %w[7️⃣ 7️⃣ 7️⃣])
+test_scenario(10, %w[🍒 🍒 🍒])
+test_scenario(20, %w[⭐️ ⭐️ 🤩])
+test_scenario(15, %w[🛎 🛎 🤩])
+test_scenario(10, %w[7️⃣ 7️⃣ 🤩])
+test_scenario(5, %w[🍒 🍒 🤩])
+test_scenario(25, %w[🤩 🤩 🍒])
+
+
+test_scenario(5, %w[🍒 🤩 🍒])
+test_scenario(5, %w[🤩 🍒 🍒])
